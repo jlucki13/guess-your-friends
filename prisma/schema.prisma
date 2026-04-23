@@ -1,0 +1,66 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Game {
+  id                   String   @id @default(cuid())
+  code                 String   @unique
+  status               String   @default("lobby")
+  hostId               String?
+  promptIds            String[]
+  currentSubmissionIdx Int      @default(0)
+  createdAt            DateTime @default(now())
+
+  players     Player[]
+  submissions Submission[]
+  guesses     Guess[]
+}
+
+model Player {
+  id       String @id @default(cuid())
+  gameId   String
+  nickname String
+  score    Int    @default(0)
+
+  game        Game         @relation(fields: [gameId], references: [id])
+  submissions Submission[]
+  guesses     Guess[]
+}
+
+model Prompt {
+  id   String @id @default(cuid())
+  text String
+
+  submissions Submission[]
+}
+
+model Submission {
+  id         String @id @default(cuid())
+  gameId     String
+  playerId   String
+  promptId   String
+  answer     String
+  guessOrder Int    @default(-1)
+
+  game    Game    @relation(fields: [gameId], references: [id])
+  player  Player  @relation(fields: [playerId], references: [id])
+  prompt  Prompt  @relation(fields: [promptId], references: [id])
+  guesses Guess[]
+}
+
+model Guess {
+  id              String  @id @default(cuid())
+  gameId          String
+  submissionId    String
+  guesserId       String
+  guessedPlayerId String
+  isCorrect       Boolean
+
+  game       Game       @relation(fields: [gameId], references: [id])
+  submission Submission @relation(fields: [submissionId], references: [id])
+  guesser    Player     @relation(fields: [guesserId], references: [id])
+}
