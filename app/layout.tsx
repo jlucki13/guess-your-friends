@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Guess Your Friendsssssss",
+  title: "Guess Your Friends",
   description: "The party game where you guess what your friends said",
 };
 
