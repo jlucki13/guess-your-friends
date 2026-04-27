@@ -68,7 +68,7 @@ export default function Home() {
 
   return (
     <main className="min-h-screen flex flex-col items-center justify-center p-6 bg-gradient-to-br from-slate-900 via-slate-900 to-slate-800">
-      <div className="w-full max-w-sm">
+      <div className="w-full max-w-sm bg-green-400 rounded-2xl p-6">
         <h1 className="text-4xl font-bold text-center mb-2 bg-gradient-to-r from-blue-400 to-red-400 bg-clip-text text-transparent">
           Guess Your Friends
         </h1>
