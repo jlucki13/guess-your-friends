@@ -67,9 +67,11 @@ export default function Home() {
   }
 
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center p-6">
+    <main className="min-h-screen flex flex-col items-center justify-center p-6 bg-gradient-to-br from-slate-900 via-slate-900 to-slate-800">
       <div className="w-full max-w-sm">
-        <h1 className="text-4xl font-bold text-center mb-2">Guess Your FriendsS</h1>
+        <h1 className="text-4xl font-bold text-center mb-2 bg-gradient-to-r from-blue-400 to-red-400 bg-clip-text text-transparent">
+          Guess Your Friends
+        </h1>
         <p className="text-slate-400 text-center mb-8 text-sm">
           Answer prompts. Guess who said what!?
         </p>
@@ -79,7 +81,7 @@ export default function Home() {
             onClick={() => { setTab("create"); setError(""); }}
             className={`flex-1 py-2.5 text-sm font-medium transition-colors ${
               tab === "create"
-                ? "bg-violet-600 text-white"
+                ? "bg-blue-600 text-white"
                 : "text-slate-400 hover:text-white"
             }`}
           >
@@ -89,7 +91,7 @@ export default function Home() {
             onClick={() => { setTab("join"); setError(""); }}
             className={`flex-1 py-2.5 text-sm font-medium transition-colors ${
               tab === "join"
-                ? "bg-violet-600 text-white"
+                ? "bg-red-600 text-white"
                 : "text-slate-400 hover:text-white"
             }`}
           >
@@ -106,12 +108,12 @@ export default function Home() {
               onChange={(e) => setCreateNickname(e.target.value)}
               maxLength={20}
               required
-              className="w-full bg-slate-800 border border-slate-600 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-violet-500"
+              className="w-full bg-slate-800 border border-slate-600 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-blue-500"
             />
             <button
               type="submit"
               disabled={loading || !createNickname.trim()}
-              className="w-full bg-violet-600 hover:bg-violet-500 disabled:opacity-50 disabled:cursor-not-allowed text-white font-semibold rounded-xl py-3 transition-colors"
+              className="w-full bg-blue-600 hover:bg-blue-500 disabled:opacity-50 disabled:cursor-not-allowed text-white font-semibold rounded-xl py-3 transition-colors"
             >
               {loading ? "Creating…" : "Create Room"}
             </button>
@@ -125,7 +127,7 @@ export default function Home() {
               onChange={(e) => setJoinCode(e.target.value.toUpperCase())}
               maxLength={6}
               required
-              className="w-full bg-slate-800 border border-slate-600 rounded-xl px-4 py-3 text-white placeholder-slate-500 uppercase tracking-widest font-mono focus:outline-none focus:border-violet-500"
+              className="w-full bg-slate-800 border border-slate-600 rounded-xl px-4 py-3 text-white placeholder-slate-500 uppercase tracking-widest font-mono focus:outline-none focus:border-red-500"
             />
             <input
               type="text"
@@ -134,12 +136,12 @@ export default function Home() {
               onChange={(e) => setJoinNickname(e.target.value)}
               maxLength={20}
               required
-              className="w-full bg-slate-800 border border-slate-600 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-violet-500"
+              className="w-full bg-slate-800 border border-slate-600 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-red-500"
             />
             <button
               type="submit"
               disabled={loading || !joinCode.trim() || !joinNickname.trim()}
-              className="w-full bg-violet-600 hover:bg-violet-500 disabled:opacity-50 disabled:cursor-not-allowed text-white font-semibold rounded-xl py-3 transition-colors"
+              className="w-full bg-red-600 hover:bg-red-500 disabled:opacity-50 disabled:cursor-not-allowed text-white font-semibold rounded-xl py-3 transition-colors"
             >
               {loading ? "Joining…" : "Join Room"}
             </button>
