@@ -69,7 +69,7 @@ export default function Home() {
   return (
     <main className="min-h-screen flex flex-col items-center justify-center p-6">
       <div className="w-full max-w-sm">
-        <h1 className="text-4xl font-bold text-center mb-2">Guess Your FriendssSS</h1>
+        <h1 className="text-4xl font-bold text-center mb-2">Guess Your FriendssSSSS</h1>
         <p className="text-slate-400 text-center mb-8 text-sm">
           Answer prompts. Guess who said what!!!??
         </p>
